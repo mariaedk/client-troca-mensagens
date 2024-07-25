@@ -1,0 +1,46 @@
+<div id="body">
+    <div class="card">
+        <h5 class="card-header">Lista de usuários ativos</h5>
+        <div class="card-body">
+           <ng-container *ngFor="let usuario of usuarios | async">
+
+             <p class="card-text">
+              Id: {{ usuario.userid }} - Username: {{ usuario.username }}
+             </p>
+
+           </ng-container>
+        </div>
+      </div>
+
+      <div class="card">
+        <h5 class="card-header">Enviar mensagem</h5>
+        <div class="card-body">
+          <div class="message">
+            <select class="form-select" aria-label="Default select example"
+            [(ngModel)]="mensagemEnviar.destinationId">
+            <option value="{{ 0 }}">Todos</option>
+            <option *ngFor="let usuario of usuarios | async" [ngValue]="usuario.userid">{{ usuario.userid }} - {{ usuario.username }}</option>
+          </select>
+          <div class="input-group">
+            <textarea class="form-control" id="myTextarea" [(ngModel)]="mensagemEnviar.msg" rows="8" cols="50"></textarea>
+          </div>
+          <div class="button-group">
+            <a href="#" class="btn btn-primary" (click)="enviarMsg()">Enviar</a>
+          </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h5 class="card-header">Mensagens recebidas</h5>
+        <div class="card-body">
+          <ng-container *ngFor="let mensagem of mensagensRecebidas | async">
+            <div class="container">
+              <img src="../../assets/user.png" alt="Avatar">
+              <h4>UserId: {{ mensagem.userid }}</h4>
+              <span> {{ mensagem.msg }} </span>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+</div>
