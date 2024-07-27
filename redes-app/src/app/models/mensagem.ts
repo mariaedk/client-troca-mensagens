@@ -1,5 +1,7 @@
+import { usuario } from "./usuario";
+
 export class mensagem {
-    userid?: string;
-    msg?: string;
+    usuario?: usuario;
     destinationId?: string;
+    msg?: string;
 }

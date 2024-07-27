@@ -10,18 +10,18 @@ export class RedesService {
 
   constructor(private httpClient: HttpClient) { }
 
-  private urlApi = "";
+  private urlApi = "http://localhost:8080/chat";
 
   getUsers(usuario: usuario) {
-    return this.httpClient.post<usuario[]>(this.urlApi, usuario);
+    return this.httpClient.post<usuario[]>(`${this.urlApi}/usuarios`, usuario);
   }
 
   getMessages(usuario: usuario) {
-    return this.httpClient.post<usuario[]>(this.urlApi, usuario);
+    return this.httpClient.post<mensagem[]>(`${this.urlApi}/mensagem`, usuario);
   }
 
   enviarMensagem(mensagem: mensagem) {
-    return this.httpClient.post<mensagem[]>(this.urlApi, mensagem);
+    return this.httpClient.post<mensagem[]>(`${this.urlApi}/enviar/mensagem`, mensagem);
   }
   
 }

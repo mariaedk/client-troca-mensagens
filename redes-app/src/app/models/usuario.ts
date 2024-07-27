@@ -1,5 +1,5 @@
 export class usuario {
-    userid?: string;
-    passwd?: string;
+    userId?: number;
     username?: string;
+    passwd?: string;
 }
