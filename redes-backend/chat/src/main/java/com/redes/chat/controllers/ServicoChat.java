@@ -1,8 +1,11 @@
-package com.redes.chat.dtos;
+package com.redes.chat.controllers;
 
 import java.io.IOException;
 import java.util.List;
 
+import com.redes.chat.dtos.MensagemDTO;
+import com.redes.chat.dtos.UsuarioDTO;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
 import com.redes.chat.model.service.EnvioMensagem;

@@ -15,6 +15,9 @@ public class TransformDTOService {
     }
 
     public List<UsuarioDTO> transformToUsuarioDTO(String response) {
+        if (response.isEmpty()) {
+            return null;
+        }
         String[] parts = response.split(":");
         List<UsuarioDTO> users = new ArrayList<>();
         

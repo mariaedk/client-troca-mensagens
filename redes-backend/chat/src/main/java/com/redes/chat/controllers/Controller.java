@@ -1,25 +1,20 @@
 package com.redes.chat.controllers;
 
+import com.redes.chat.dtos.MensagemDTO;
+import com.redes.chat.dtos.UsuarioDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-import com.redes.chat.dtos.MensagemDTO;
-import com.redes.chat.dtos.ServicoChat;
-import com.redes.chat.dtos.UsuarioDTO;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/chat")
 public class Controller {
 
 	@Autowired
 	private ServicoChat servicoChat;
 
-	@GetMapping("/usuarios")
+	@PostMapping("/usuarios")
 	public ResponseEntity<?> obterUsuarios(@RequestBody UsuarioDTO usuario) {
 		try {
 			return ResponseEntity.ok().body(servicoChat.obterUsuarios(usuario));
@@ -28,16 +23,16 @@ public class Controller {
 		}
 	}
 
-	@GetMapping("/mensagem")
+	@PostMapping("/mensagem")
 	public ResponseEntity<?> obterMensagem(@RequestBody UsuarioDTO usuario) {
 		try {
-			return ResponseEntity.ok().body(servicoChat.obterUsuarios(usuario));
+			return ResponseEntity.ok().body(servicoChat.obterMensagem(usuario));
 		} catch (Exception e) {
 			return ResponseEntity.internalServerError().body(e.getMessage());
 		}
 	}
 
-	@PostMapping("/mensagem")
+	@PostMapping("/enviar/mensagem")
 	public ResponseEntity<?> enviarMensagem(@RequestBody MensagemDTO mensagem) {
 		
 		try {
