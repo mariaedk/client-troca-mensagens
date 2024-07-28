@@ -1,13 +1,13 @@
-package com.redes.chat.dtos;
+package com.redes.chat.model.service;
 
 import java.io.IOException;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.redes.chat.model.service.EnvioMensagem;
-import com.redes.chat.model.service.Requests;
-import com.redes.chat.model.service.TransformDTOService;
+import com.redes.chat.dtos.MensagemDTO;
+import com.redes.chat.dtos.TransformDTOService;
+import com.redes.chat.dtos.UsuarioDTO;
 
 @Service
 public class ServicoChat {

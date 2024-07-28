@@ -1,10 +1,7 @@
-package com.redes.chat.model.service;
+package com.redes.chat.dtos;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import com.redes.chat.dtos.MensagemDTO;
-import com.redes.chat.dtos.UsuarioDTO;
 
 public class TransformDTOService {
 

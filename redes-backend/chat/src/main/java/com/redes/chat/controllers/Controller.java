@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.redes.chat.dtos.MensagemDTO;
-import com.redes.chat.dtos.ServicoChat;
 import com.redes.chat.dtos.UsuarioDTO;
+import com.redes.chat.model.service.ServicoChat;
 
 @RestController
 @RequestMapping("/chat")
